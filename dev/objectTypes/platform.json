@@ -1,0 +1,26 @@
+{
+	"name": "Platform",
+	"plugin-id": "TiledBg",
+	"sid": 480221506071254,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Bullet",
+			"name": "Bullet",
+			"sid": 453425086803641
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 336,
+		"height": 112,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 7342069,
+		"useCollisionPoly": true
+	}
+}

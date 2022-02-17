@@ -1,0 +1,26 @@
+{
+	"name": "Background",
+	"plugin-id": "TiledBg",
+	"sid": 833320173501818,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Bullet",
+			"name": "Bullet",
+			"sid": 858483301328022
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 288,
+		"height": 512,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 5152655,
+		"useCollisionPoly": true
+	}
+}

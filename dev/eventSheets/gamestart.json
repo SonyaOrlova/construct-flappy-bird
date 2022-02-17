@@ -1,0 +1,27 @@
+{
+	"name": "GameStart",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-click",
+					"objectClass": "Mouse",
+					"sid": 112860463283880
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 881674277707264,
+					"parameters": {
+						"layout": "Game"
+					}
+				}
+			],
+			"sid": 527759365184000
+		}
+	],
+	"sid": 455603044671182
+}

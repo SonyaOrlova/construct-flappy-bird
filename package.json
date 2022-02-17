@@ -1,0 +1,12 @@
+{
+  "name": "Construct",
+  "description": "Flappy Bird Construct",
+  "version": "1.0.0",
+  "scripts": {
+    "serve": "node ./serve.js"
+  },
+  "devDependencies": {
+    "connect": "3.7.0",
+    "serve-static": "1.14.2"
+  }
+}

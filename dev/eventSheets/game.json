@@ -1,0 +1,276 @@
+{
+	"name": "Game",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "PIPE_WIDTH",
+			"type": "number",
+			"initialValue": "52",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 281652706900363
+		},
+		{
+			"eventType": "variable",
+			"name": "MIN_PIPE_HEIGHT",
+			"type": "number",
+			"initialValue": "32",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 727504383240781
+		},
+		{
+			"eventType": "variable",
+			"name": "MAX_PIPE_HEIGHT",
+			"type": "number",
+			"initialValue": "188",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 216736000619757
+		},
+		{
+			"eventType": "variable",
+			"name": "PIPES_GAP",
+			"type": "number",
+			"initialValue": "100",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 450621462674731
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-x",
+					"objectClass": "Background",
+					"sid": 347707113937063,
+					"parameters": {
+						"comparison": 3,
+						"x-co-ordinate": "- Self.Width / 2"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-x",
+					"objectClass": "Background",
+					"sid": 431545965704841,
+					"parameters": {
+						"x": "Self.X + Self.Width / 2"
+					}
+				}
+			],
+			"sid": 962228378242496
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-x",
+					"objectClass": "Platform",
+					"sid": 330142971360621,
+					"parameters": {
+						"comparison": 3,
+						"x-co-ordinate": "- Self.Width / 2"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-x",
+					"objectClass": "Platform",
+					"sid": 729781497296561,
+					"parameters": {
+						"x": "Self.X + Self.Width / 2"
+					}
+				}
+			],
+			"sid": 361791094990007
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-click",
+					"objectClass": "Mouse",
+					"sid": 828839354774177
+				}
+			],
+			"actions": [
+				{
+					"id": "set-speed",
+					"objectClass": "Bird",
+					"sid": 232293479070572,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"speed": "100"
+					}
+				},
+				{
+					"id": "set-angle-of-motion",
+					"objectClass": "Bird",
+					"sid": 862844270149396,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"angle": "270"
+					}
+				}
+			],
+			"sid": 179391739084183
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 488549555560917,
+					"parameters": {
+						"interval-seconds": "random(3,5)"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 168843079129029,
+					"parameters": {
+						"object-to-create": "PipeTop",
+						"layer": "0",
+						"x": "LayoutWidth / 2 + PIPE_WIDTH",
+						"y": "random(MAX_PIPE_HEIGHT - MIN_PIPE_HEIGHT) + MIN_PIPE_HEIGHT",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 816904663974668,
+					"parameters": {
+						"object-to-create": "PipeBottom",
+						"layer": "0",
+						"x": "LayoutWidth / 2 + PIPE_WIDTH",
+						"y": "PipeTop.Y + PIPES_GAP",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "PipeTop",
+					"sid": 963109709435992,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "PipeBottom",
+					"sid": 631055101446613,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 388431080982478
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Bird",
+					"sid": 130218554587418,
+					"parameters": {
+						"object": "PipeTop"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 809858473239061,
+					"parameters": {
+						"layout": "GameOver"
+					}
+				}
+			],
+			"sid": 572276663615291
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Bird",
+					"sid": 656647486732555,
+					"parameters": {
+						"object": "PipeBottom"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 691498703201560,
+					"parameters": {
+						"layout": "GameOver"
+					}
+				}
+			],
+			"sid": 235528673390858
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Bird",
+					"sid": 737506599107027,
+					"parameters": {
+						"object": "Platform"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 381128135044316,
+					"parameters": {
+						"layout": "GameOver"
+					}
+				}
+			],
+			"sid": 687138984138800
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-outside-layout",
+					"objectClass": "Bird",
+					"sid": 404594057121764
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 342797812216600,
+					"parameters": {
+						"layout": "GameOver"
+					}
+				}
+			],
+			"sid": 670789166483861
+		}
+	],
+	"sid": 646046579763170
+}

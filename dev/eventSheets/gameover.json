@@ -1,0 +1,27 @@
+{
+	"name": "GameOver",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-click",
+					"objectClass": "Mouse",
+					"sid": 253321189612486
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 550085450986350,
+					"parameters": {
+						"layout": "GameStart"
+					}
+				}
+			],
+			"sid": 981973752930684
+		}
+	],
+	"sid": 697311980159007
+}
